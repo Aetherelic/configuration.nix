@@ -13,7 +13,7 @@
 
 My personal configuration.nix files that are designed to be easily editable, easy to understand and minimal with little to no clutter!
 As this is my own personal configuation files, if you want to duplicate this to use within your own system some tweaking will be neccesary
-These configuation.nix files assume you are using an Nvidia GPU, Wayland and Hyprland.
+These configuation.nix files assume you are using an Nvidia GPU, Wayland, Hyprland. It also assumes your timezone is London, your LC_ADDRESS is en_GB.UTF-8. All of these are easily changed to the correct ones for your system without any problems.
 
 </div>
 
@@ -74,6 +74,24 @@ These configuation.nix files assume you are using an Nvidia GPU, Wayland and Hyp
      hyprland conf = "sudo nano ~/.config/hypr/hyprland.conf"
 
 
+<br>
 
+## 󰄬 Licence
+
+Released under the [MIT Licence](LICENSE).
+
+You are free to use, modify and redistribute this configuration.
+
+<br>
+
+<div align="center">
+
+### Made with <3, NixOS and an unreasonable amount of mental breakdowns.
+
+<br>
+
+[![GitHub profile](https://img.shields.io/badge/AETHERELIC-GITHUB-d79921?style=for-the-badge\&logo=github\&logoColor=fbf1c7)](https://github.com/Aetherelic)
+
+</div>
 
 
