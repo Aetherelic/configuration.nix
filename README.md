@@ -1,4 +1,4 @@
-<div align="centre"
+<div align="centre">
 
 # Configuration.nix files
 
