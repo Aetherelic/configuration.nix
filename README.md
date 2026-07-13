@@ -4,6 +4,8 @@
 
 ## An aesthetic configuration.nix setup made for editing and ease of use
 
+<br>
+
 [![NixOS](https://img.shields.io/badge/NIXOS-READY-458588?style=for-the-badge\&logo=nixos\&logoColor=fbf1c7)](https://nixos.org/)
 [![Hyprland](https://img.shields.io/badge/HYPRLAND-OPTIMISED-689d6a?style=for-the-badge\&logo=wayland\&logoColor=fbf1c7)](https://hypr.land/)
 [![License](https://img.shields.io/badge/LICENSE-MIT-cc241d?style=for-the-badge)](LICENSE)
