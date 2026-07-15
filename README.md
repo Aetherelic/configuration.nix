@@ -1,99 +1,195 @@
-<div align="centre">
+<div align="center">
 
-# Configuration.nix files
+# ❄️ Aether NixOS Configuration
 
-## An aesthetic configuration.nix setup made for editing and ease of use
-
-
-[![NixOS](https://img.shields.io/badge/NIXOS-READY-458588?style=for-the-badge\&logo=nixos\&logoColor=fbf1c7)](https://nixos.org/)
-[![Hyprland](https://img.shields.io/badge/HYPRLAND-OPTIMISED-689d6a?style=for-the-badge\&logo=wayland\&logoColor=fbf1c7)](https://hypr.land/)
-[![License](https://img.shields.io/badge/LICENSE-MIT-cc241d?style=for-the-badge)](LICENSE)
+### My personal modular NixOS configuration built around Flakes, Hyprland and Whisker.
 
 <br>
 
-My personal configuration.nix files that are designed to be easily editable, easy to understand and minimal with little to no clutter!
-As this is my own personal configuation files, if you want to duplicate this to use within your own system some tweaking will be neccesary
-These configuation.nix files assume you are using an Nvidia GPU, Wayland, Hyprland. It also assumes your timezone is London, your LC_ADDRESS is en_GB.UTF-8. All of these are easily changed to the correct ones for your system without any problems.
+[![NixOS](https://img.shields.io/badge/NIXOS-26.05-5277C3?style=for-the-badge\&logo=nixos\&logoColor=white)](https://nixos.org/)
+[![Flakes](https://img.shields.io/badge/NIX-FLAKES-7EBAE4?style=for-the-badge\&logo=nixos\&logoColor=white)](https://wiki.nixos.org/wiki/Flakes)
+[![Hyprland](https://img.shields.io/badge/HYPRLAND-WAYLAND-58E1FF?style=for-the-badge\&logo=wayland\&logoColor=111827)](https://hypr.land/)
+[![Steam](https://img.shields.io/badge/GAMING-READY-1B2838?style=for-the-badge\&logo=steam\&logoColor=white)](#-gaming)
+[![MIT License](https://img.shields.io/badge/LICENSE-MIT-8B5CF6?style=for-the-badge)](LICENSE)
 
-This is my first time ever using the Nix language so some things may be a little jank however, I have not encountered any issues in the past month of using these configuration.nix files but I will be making improvements over time <3 
+<br>
+
+My personal NixOS configuration I use for my main PC.
+
+Built around **Flakes**, **Hyprland**, **Whisker**, **PipeWire**, **Steam**, **NVIDIA**, and a collection of quality-of-life shell aliases.
+
+<br>
+
+[Features](#-features) •
+[Repository Layout](#-repository-layout) •
+[Installation](#-installation) •
+[Shell Aliases](#-shell-aliases)
 
 </div>
 
-<br>
+---
 
-## Preview
+# ✦ Features
 
-<div align="centre"
+* ❄️ Nix Flakes
+* 🖥️ Hyprland
+* 🥃 Whisker desktop shell
+* 🎮 Steam + GameMode + MangoHud
+* 🎵 PipeWire audio
+* 🎨 Spicetify integration
+* ⚡ Modular configuration layout
+* 🛠️ Helpful rebuild and editing aliases
+* 🔄 Rollback-friendly workflow
 
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/ff93f4d2-aab8-49b5-a70a-746221131bc3" />#
+---
 
-<br><br>
+# ✦ Repository Layout
 
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/b32a32cd-7fad-4873-ac8b-4ccd7b520abc" />#
-
-<div>
-
-<br>
-
-## Structure
-
+```text
+.
+├── configuration.nix
+├── flake.nix
+├── shell.nix
+├── packages.nix
+├── steam.nix
+├── system.nix
+└── modules/
 ```
-/etc/nixos/configuration.nix
-├── /etc/nixos/flakes.nix
-├── /etc/nixos/modules/core/system.nix                
-├── /etc/nixos/modules/core/packages.nix                
-├── /etc/nixos/modules/core/shell.nix                
-└── /etc/nixos/modules/gaming/steam.nix
+
+### Core files
+
+| File                | Purpose                              |
+| :------------------ | :----------------------------------- |
+| `configuration.nix` | Main configuration entry point       |
+| `flake.nix`         | Flake inputs and system definition   |
+| `packages.nix`      | Installed packages                   |
+| `shell.nix`         | Bash configuration and aliases       |
+| `steam.nix`         | Gaming configuration                 |
+| `system.nix`        | Hostname, locale and system settings |
+
+---
+
+# ✦ Included Modules
+
+The configuration is split into smaller modules covering areas such as:
+
+* Core system configuration
+* Desktop
+* Gaming
+* Audio
+* NVIDIA
+* Boot
+* Storage
+* Theming
+* Whisker
+* Shell configuration
+
+---
+
+# ✦ Shell Aliases
+
+One of the goals of this configuration is reducing repetitive commands.
+
+Examples include aliases for:
+
+### Editing
+
+```text
+nix-config
+nix-flakes
+nix-system
+nix-pkgs
+nix-aliases
+nix-gaming
 ```
 
-# Shell Aliases
+### Rebuilding
 
+```text
+update
+tryupdate
+bootupdate
+```
 
-      # Edit NixOS config
-      nix-config = "sudo nano /etc/nixos/configuration.nix";
-      nix-flakes = "sudo nano /etc/nixos/flake.nix";
-      nix-system = "sudo nano /etc/nixos/modules/core/system.nix";
-      nix-pkgs = "sudo nano /etc/nixos/modules/core/packages.nix";
-      nix-aliases = "sudo nano /etc/nixos/modules/core/shell.nix";
-      nix-gaming = "sudo nano /etc/nixos/modules/gaming/steam.nix";
+### Maintenance
 
-      # NixOS rebuilds
-      update = "sudo nixos-rebuild switch --flake /etc/nixos#aether-nixos";
-      tryupdate = "sudo nixos-rebuild test --flake /etc/nixos#aether-nixos";
-      bootupdate = "sudo nixos-rebuild boot --flake /etc/nixos#aether-nixos";
+```text
+clean
+optimise
+errors
+generations
+treecfg
+```
 
-      # Maintenance
-      clean = "sudo nix-collect-garbage -d";
-      optimise = "nix-store --optimise";
+This means most day-to-day NixOS management only requires a few short commands instead of repeatedly typing long `nixos-rebuild` commands.
 
-      # Checks
-      errors = "journalctl -p 3 -xb";
-      generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-      treecfg = "tree /etc/nixos -L 4";
-      nixfiles = "/home/aether/.local/bin/nixfiles";
+---
 
-     # General Aliases for Bash
-     hyprland conf = "sudo nano ~/.config/hypr/hyprland.conf"
+# ✦ Gaming
 
+Included gaming configuration provides:
 
-<br>
+* Steam
+* Proton support
+* GameMode
+* MangoHud
+* ProtonUp-Qt
+* Prism Launcher
 
-## 󰄬 Licence
+---
 
-Released under the [MIT Licence](LICENSE).
+# ✦ Installation
 
-You are free to use, modify and redistribute this configuration.
+Clone the repository:
 
-<br>
+```bash
+git clone https://github.com/Aetherelic/configuration.nix.git
+```
+
+Review the configuration before replacing anything inside `/etc/nixos`.
+
+Once you're happy with the configuration:
+
+```bash
+sudo nix flake check
+
+sudo nixos-rebuild test --flake /etc/nixos#aether-nixos
+
+sudo nixos-rebuild switch --flake /etc/nixos#aether-nixos
+```
+
+---
+
+# ✦ Notes
+
+This repository is built for **my own hardware and workflow**.
+
+You will likely need to change:
+
+* Username
+* Hostname
+* Hardware configuration
+* Monitor configuration
+* GPU settings
+* Storage configuration
+* Locale and timezone
+
+Treat this repository as a reference or starting point rather than a universal NixOS installer.
+
+---
+
+# ✦ Licence
+
+Released under the MIT Licence.
+
+---
 
 <div align="center">
 
-### Made with <3, NixOS and an unreasonable amount of mental breakdowns.
+### Declarative systems. Fewer headaches.
 
 <br>
 
-[![GitHub profile](https://img.shields.io/badge/AETHERELIC-GITHUB-d79921?style=for-the-badge\&logo=github\&logoColor=fbf1c7)](https://github.com/Aetherelic)
+[![Aetherelic](https://img.shields.io/badge/CREATED_BY-AETHERELIC-8B5CF6?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/Aetherelic)
 
 </div>
-
-
